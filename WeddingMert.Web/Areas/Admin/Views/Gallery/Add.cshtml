@@ -1,0 +1,49 @@
+﻿@using WeddingMert.Entity.DTOs.Galleries;
+@model GalleryAddDto
+
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Galeri Yönetimi/</span>Fotoğraf Ekle</h4>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-4">
+                <h5 class="card-header"></h5>
+                <form  asp-controller="Gallery" asp-action="Add" method="post" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly"></div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label asp-for="Title" for="defaultFormControlInput" class="form-label">Fotoğraf Adı</label>
+                            <input type="text"
+                                   class="form-control"
+                                   id="defaultFormControlInput"
+                                   placeholder="Fotoğraf Adı giriniz"
+                                   asp-for="Title"
+                                   aria-describedby="defaultFormControlHelp" />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Photo" for="defaultFormControlInput" class="form-label">Resim Seçiniz</label>
+                            <input type="file" accept="image/*"
+                                   class="form-control"
+                                   id="defaultFormControlInput"
+                                   asp-for="Photo"
+                                   style="min-height:50px"
+                                   aria-describedby="defaultFormControlHelp" />
+                            <span asp-validation-for="Photo" class="text-danger"></span>
+
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class=" btn btn-primary btn-blockı">Kaydet</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+﻿@using WeddingMert.Entity.DTOs.Contacts;
+@model ContactDto
+@{
+    ViewData["Title"] = "MessageDetails";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <p>Gönderen Adı Soyadı</p>
+                <div class="card-body">
+                    <p>@Model.Name @Model.Surname</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card">
+                <p>Gönderen Mail</p>
+                <div class="card-body">
+                    <p>@Model.Phone</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card">
+                <p>Mail</p>
+
+                <div class="card-body">
+                    <p>@Model.Mail</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card">
+                <p>Mesaj</p>
+                <div class="card-body">
+                    <p>@Model.Message</p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

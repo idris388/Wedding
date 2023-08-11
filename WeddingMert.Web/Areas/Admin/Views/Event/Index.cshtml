@@ -1,0 +1,27 @@
+﻿@using WeddingMert.Entity.DTOs.Events;
+@model List<EventDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<h1>Etkinlikler </h1>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Başlık</th>
+        <th>İşlemler</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr name="@item.Id">
+            <th>@item.Title1</th>
+            <th>
+                <a class="btn btn-primary btn-sm" href="/Admin/Event/Update/@item.Id"><i class="bx bxs-edit"></i></a>
+            </th>
+        </tr>
+    }
+</table>
+
+@section Scripts{
+    <script src="~/js/aboutIndex.js" type="application/ecmascript"></script>
+}

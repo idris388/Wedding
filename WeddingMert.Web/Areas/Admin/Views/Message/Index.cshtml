@@ -1,0 +1,28 @@
+﻿@using WeddingMert.Entity.DTOs.Contacts;
+@model List<ContactDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<h1>Gelen Mesajlar </h1>
+<br />
+<table class="table table-hovered" id="aboutTables" width="100%" cellspacing="0">
+    <tr>
+        <th>Ad-Soyad</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr name="@item.Id">
+            <th>@item.Name @item.Surname</th>
+            <th>
+                @*href="/Admin/Message/MessageDetails/@item.Id"*@
+                <a asp-route="detaylar" asp-route-id="@item.Id" class="btn btn-primary btn-sm" ><i class="bx bx-detail"></i></a>
+            </th>
+        </tr>
+    }
+</table>
+
+@section Scripts{
+    <script src="~/js/aboutIndex.js" type="application/ecmascript"></script>
+}

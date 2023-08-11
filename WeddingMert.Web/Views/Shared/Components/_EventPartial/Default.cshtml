@@ -1,0 +1,57 @@
+﻿@using WeddingMert.Entity.DTOs.Events;
+@model List<EventDto>
+<style>
+    .event-img {
+        max-width: 300px;
+        max-height: 200px;
+        object-fit: cover;
+    }
+</style>
+<div class="container-fluid py-5" id="event">
+    <div class="container py-5">
+        <div class="section-title position-relative text-center">
+            <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Etkinlik</h6>
+            <h1 class="font-secondary display-4">Düğün Etkinliğimiz</h1>
+            <i class="far fa-heart text-dark"></i>
+        </div>
+        @foreach (var item in Model)
+        {
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center">
+                    <h5 class="font-weight-normal text-muted mb-3 pb-3">@item.Title</h5>
+                </div>
+            </div>
+        }
+
+            <div class="row">
+            @foreach(var item in Model)
+            {
+                @if (item.Id == Guid.Parse("ce285805-7b21-43ec-aed1-1cabd2c7b87e"))
+                {
+                    <div class="col-md-6 border-right border-primary">
+                        <div class="text-center text-md-right mr-md-3 mb-4 mb-md-0">
+                            <img class="img-fluid mb-4 event-img" src="~/images/@item.Image.FileName" alt="">
+                            <h4 class="mb-3">@item.Title1</h4>
+                            <p class="mb-2">@item.Address</p>
+                            <p class="mb-0">@item.Tarih.ToShortDateString() - @item.Saat.ToString(@"hh\:mm")</p>
+                        </div>
+                    </div>
+                }
+            }
+            @foreach (var item in Model)
+            {
+                @if (item.Id == Guid.Parse("d3f5f2c3-29a5-4173-97e8-86a37eddd841"))
+                {
+                    <div class="col-md-6">
+                        <div class="text-center text-md-left ml-md-3">
+                            <img class="img-fluid mb-4 event-img" src="~/images/@item.Image.FileName" alt="">
+                            <h4 class="mb-3">@item.Title1</h4>
+                            <p class="mb-2">@item.Address</p>
+                            <p class="mb-0">@item.Tarih.ToShortDateString() - @item.Saat.ToString(@"hh\:mm")</p>
+                        </div>
+                    </div>
+                }
+            }
+            </div>
+    </div>
+</div>

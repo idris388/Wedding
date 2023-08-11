@@ -1,0 +1,50 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+@await Component.InvokeAsync("_HeadPartial")
+
+<body data-spy="scroll" data-target=".navbar" data-offset="51">
+
+    @await Component.InvokeAsync("_NavbarPartial")
+
+    @await Component.InvokeAsync("_SliderPartial")
+
+    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <!-- 16:9 aspect ratio -->
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always" allow="autoplay"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @await Component.InvokeAsync("_AboutPartial")
+
+    @await Component.InvokeAsync("_GalleryPartial")
+
+    @await Component.InvokeAsync("_EventPartial")
+
+    @await Html.PartialAsync("_ContactPartial")
+    
+    @await Component.InvokeAsync("_FooterPartial")
+    <i class="fa fa-2x fa-angle-down text-white scroll-to-bottom"></i>
+
+    <a href="#" class="btn btn-lg btn-outline-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+    @await Component.InvokeAsync("_ScriptPartial")
+    @await Component.InvokeAsync("NToastNotify")
+
+</body>
+</html>

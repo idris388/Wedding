@@ -1,0 +1,41 @@
+﻿@using WeddingMert.Entity.DTOs.Galleries;
+
+@model List<GalleryDto>
+
+@*<div class="container-fluid bg-gallery" id="gallery" style="padding: 120px 0; margin: 90px 0;">
+    <div class="section-title position-relative text-center" style="margin-bottom: 120px;">
+        <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Galeri</h6>
+        <h1 class="font-secondary display-4 text-white">Fotoğraflarımız</h1>
+        <i class="far fa-heart text-white"></i>
+    </div>
+    <div class="owl-carousel gallery-carousel">
+        @foreach (var item in Model)
+        {
+            <div class="gallery-item">
+                <img class="img-fluid w-100" src="~/images/@item.Image.FileName" alt="">
+                <a href="~/images/@item.Image.FileName" data-lightbox="gallery">
+                    <i class="fa fa-2x fa-plus text-white"></i>
+                </a>
+            </div>
+        }
+
+    </div>
+</div>*@
+<div class="container-fluid bg-gallery" id="gallery" style="padding: 120px 0; margin: 90px 0;">
+    <div class="section-title position-relative text-center" style="margin-bottom: 120px;">
+        <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Galeri</h6>
+        <h1 class="font-secondary display-4 text-white">Fotoğraflarımız</h1>
+        <i class="far fa-heart text-white"></i>
+    </div>
+    <div class="owl-carousel gallery-carousel">
+        @foreach (var item in Model)
+        {
+            <div class="gallery-item" style="width: 100%; height: 300px; overflow: hidden;">
+                <img class="img-fluid w-100 h-100" style="object-fit: cover;" src="~/images/@item.Image.FileName" alt="">
+                <a href="~/images/@item.Image.FileName" data-lightbox="gallery">
+                    <i class="fa fa-2x fa-plus text-white"></i>
+                </a>
+            </div>
+        }
+    </div>
+</div>

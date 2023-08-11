@@ -1,0 +1,56 @@
+﻿@using WeddingMert.Entity.DTOs.Galleries;
+@model List<GalleryDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    int count = 0;
+}
+<style>
+    .image-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .gallery-item {
+        width: 200px;
+    }
+
+    .thumbnail {
+        width: 100%;
+        height: auto;
+    }
+
+</style>
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Galeri Yönetimi /</span> Fotoğraflar</h4>
+    <a class="btn btn-success mb-3" asp-area="Admin" asp-controller="Gallery" asp-action="Add">Fotoğraf Ekle <i class="bx bx-plus"></i> </a>
+    <!-- Basic Bootstrap Table -->
+    <div class="card">
+        <table class="table table-bordered" style="margin-left: auto; margin-right: auto;">
+            <tr>
+                <th>#</th>
+                <th>Resim</th>
+                <th>Sil</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <td>@count</td>
+                    <td>
+                        <img src="~/images/@item.Image.FileName" style="width:100px;height:100px;" alt="Resim" class="thumbnail">
+                    </td>
+                    <td><a href="/Admin/Gallery/Delete/@item.Id" class="btn btn-outline-primary">Sil</a></td>
+                </tr>
+            }
+        </table>
+    </div>
+
+</div>
+@section Scripts{
+    <script src="~/js/articleIndex.js" type="application/ecmascript"></script>
+}
+
+

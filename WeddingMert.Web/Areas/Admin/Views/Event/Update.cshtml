@@ -1,0 +1,100 @@
+﻿@using WeddingMert.Entity.DTOs.Events;
+@model EventUpdateDto
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Etkinlik Yönetimi /</span>Etkinlik</h4>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card mb-4">
+            <h5 class="card-header"></h5>
+            <form asp-controller="Event" asp-action="Update" method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly"></div>
+                <div class="card-body">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="Title" for="defaultFormControlInput" class="form-label">Başlık</label>
+                        <input type="text"
+                               class="form-control"
+                               id="defaultFormControlInput"
+                               placeholder="Başlık"
+                               asp-for="Title"
+                               aria-describedby="defaultFormControlHelp" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Title1" for="defaultFormControlInput" class="form-label">Başlık-1</label>
+                        <input type="text"
+                               class="form-control"
+                               id="defaultFormControlInput"
+                               placeholder="Başlık-1"
+                               asp-for="Title1"
+                               aria-describedby="defaultFormControlHelp" />
+                        <span asp-validation-for="Title1" class="text-danger"></span>
+
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Address" for="defaultFormControlInput" class="form-label">Adres</label>
+                        <input type="text"
+                               class="form-control"
+                               id="defaultFormControlInput"
+                               placeholder="Adres"
+                               asp-for="Address"
+                               aria-describedby="defaultFormControlHelp" />
+                        <span asp-validation-for="Address" class="text-danger"></span>
+
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Tarih" for="defaultFormControlInput" class="form-label">Tarih</label>
+                        <input type="date"
+                               class="form-control"
+                               id="defaultFormControlInput"
+                               placeholder="Tarih"
+                               asp-for="Tarih"
+                               aria-describedby="defaultFormControlHelp" />
+                        <span asp-validation-for="Tarih" class="text-danger"></span>
+
+                    </div>                   
+                    <div class="form-group">
+                        <label asp-for="Saat" for="defaultFormControlInput" class="form-label">Saat</label>
+                        <input type="time"
+                               class="form-control"
+                               id="defaultFormControlInput"
+                               placeholder="Saa"
+                               asp-for="Saat"
+                               aria-describedby="defaultFormControlHelp" />
+                        <span asp-validation-for="Saat" class="text-danger"></span>
+
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Image.FileName" for="defaultFormControlInput" class="form-label d-block">Mevcut Resim</label>
+                        @if (Model.Image != null && Model.Image.FileName != null)
+                        {
+                            <img style="height:25em; width:25em;" class="mb-3" src="~/images/@Model.Image.FileName" alt="@Model.Title" />
+                        }
+                        else
+                        {
+                            <div class="alert alert-danger">Resim bulunamadı veya geçerli değil.</div>
+                        }
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Photo" for="defaultFormControlInput" class="form-label">Resim Seçiniz</label>
+                        <input type="file" accept="image/*"
+                               class="form-control"
+                               asp-for="Photo"
+                               aria-describedby="defaultFormControlHelp" />
+                        <span asp-validation-for="Photo" class="text-danger"></span>
+
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <button type="submit" class=" btn btn-primary btn-blockı">Güncelle</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
